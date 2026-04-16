@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOHSEN STUDIO — Visual identity, logos, web & social</title>
+  <meta name="description" content="MOHSEN STUDIO: visual identity, logo design, websites, social creative, and print & packaging — brand-ready assets for screens and production." />
+  <!-- Logo source file (keep a copy as logo.svg in this folder): C:\Users\laptop\Downloads\شعار محسن.svg -->
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Logo artwork is outlined type; Montserrat Heavy mirrors the geometric wordmark in the SVG. -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #072ac8;
+      --blue-deep: #051e90;
+      --blue-bright: #0e3cff;
+      --yellow: #fcf300;
+      --yellow-bright: #ffec00;
+      --white: #ffffff;
+      --text: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.72);
+      --on-accent: #072ac8;
+      --glass-surface: rgba(255, 255, 255, 0.12);
+      --glass-stroke: rgba(255, 255, 255, 0.35);
+      --glass-stroke-soft: rgba(255, 255, 255, 0.2);
+      --blur-frost: blur(24px) saturate(180%);
+      --radius: 18px;
+      --radius-pill: 999px;
+      --header-height: 4.75rem;
+      --max: 72rem;
+      --font: "Montserrat", system-ui, -apple-system, sans-serif;
+      --shadow-card: 0 12px 48px rgba(0, 30, 120, 0.35), 0 1px 0 rgba(255, 255, 255, 0.12) inset;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.65;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--blue-deep);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Blue base + glass fins + frosted veil + glass panels (professional glass glow) */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .page-bg__base {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(120% 90% at 100% -5%, rgba(14, 60, 255, 0.35), transparent 52%),
+        radial-gradient(90% 70% at -5% 105%, rgba(5, 30, 144, 0.85), transparent 55%),
+        linear-gradient(165deg, var(--blue-deep) 0%, var(--blue) 40%, var(--blue-bright) 100%);
+      animation: pageBgBaseShift 28s ease-in-out infinite alternate;
+    }
+
+    .page-bg__glow {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(72px);
+      mix-blend-mode: screen;
+      opacity: 0.55;
+    }
+
+    .page-bg__glow--a {
+      width: min(120vw, 52rem);
+      height: min(120vw, 52rem);
+      top: -18%;
+      right: -22%;
+      background: radial-gradient(circle at 40% 40%, rgba(14, 60, 255, 0.55) 0%, rgba(7, 42, 200, 0.15) 45%, transparent 68%);
+      animation: pageBgGlowA 16s ease-in-out infinite alternate;
+    }
+
+    .page-bg__glow--b {
+      width: min(100vw, 44rem);
+      height: min(100vw, 44rem);
+      bottom: -28%;
+      left: -25%;
+      background: radial-gradient(circle at 55% 45%, rgba(5, 30, 144, 0.75) 0%, rgba(14, 60, 255, 0.2) 50%, transparent 70%);
+      animation: pageBgGlowB 22s ease-in-out infinite alternate;
+    }
+
+    .page-bg__fins {
+      position: absolute;
+      inset: 0;
+      opacity: 0.42;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0 11px,
+        rgba(255, 255, 255, 0.045) 11px 12px,
+        rgba(0, 20, 80, 0.35) 12px 13px,
+        rgba(255, 255, 255, 0.02) 13px 14px,
+        rgba(255, 255, 255, 0) 14px 26px
+      );
+      background-size: 26px 100%;
+      animation: pageBgFinsDrift 24s linear infinite;
+    }
+
+    /* Soft frosted veil — keeps blues visible, adds depth */
+    .page-bg__frost {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      backdrop-filter: blur(14px) saturate(165%);
+      -webkit-backdrop-filter: blur(14px) saturate(165%);
+      background: linear-gradient(
+        168deg,
+        rgba(255, 255, 255, 0.07) 0%,
+        rgba(120, 170, 255, 0.04) 35%,
+        rgba(5, 30, 144, 0.07) 100%
+      );
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    }
+
+    /* Large glass panes: rim light + inner frost + blue-tinted caustic */
+    .page-bg__glass {
+      position: absolute;
+      z-index: 3;
+      border-radius: clamp(1.75rem, 5vw, 3.25rem);
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background:
+        linear-gradient(
+          155deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.04) 38%,
+          rgba(14, 60, 255, 0.12) 100%
+        );
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 -20px 50px rgba(0, 25, 120, 0.25) inset,
+        0 32px 100px rgba(0, 20, 90, 0.45),
+        0 0 80px rgba(100, 160, 255, 0.15);
+      backdrop-filter: blur(22px) saturate(175%);
+      -webkit-backdrop-filter: blur(22px) saturate(175%);
+    }
+
+    .page-bg__glass::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.35) 0%,
+        transparent 42%,
+        transparent 58%,
+        rgba(180, 210, 255, 0.12) 100%
+      );
+      opacity: 0.45;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .page-bg__glass--1 {
+      width: min(58vw, 30rem);
+      height: min(72vh, 38rem);
+      top: 5%;
+      right: -12%;
+      transform: rotate(-10deg);
+      animation: pageBgGlass1 24s ease-in-out infinite alternate;
+    }
+
+    .page-bg__glass--2 {
+      width: min(48vw, 24rem);
+      height: min(55vh, 30rem);
+      bottom: -6%;
+      left: -10%;
+      transform: rotate(7deg);
+      opacity: 0.92;
+      animation: pageBgGlass2 28s ease-in-out infinite alternate;
+    }
+
+    .page-bg__glass--3 {
+      width: min(42vw, 18rem);
+      height: min(38vh, 16rem);
+      top: 42%;
+      left: 22%;
+      transform: rotate(-4deg) scale(1);
+      opacity: 0.55;
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+        0 20px 60px rgba(0, 30, 120, 0.35),
+        0 0 60px rgba(120, 180, 255, 0.12);
+      animation: pageBgGlass3 32s ease-in-out infinite alternate;
+    }
+
+    /* Diffuse glass caustics / bloom on top of panes */
+    .page-bg__specular {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 45% at 25% 25%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 40% at 78% 65%, rgba(160, 200, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 35% 30% at 50% 88%, rgba(14, 60, 255, 0.18) 0%, transparent 55%);
+      mix-blend-mode: soft-light;
+      animation: pageBgSpecular 20s ease-in-out infinite alternate;
+    }
+
+    .page-bg__sweep {
+      position: absolute;
+      inset: -60% -30%;
+      z-index: 5;
+      background: linear-gradient(
+        102deg,
+        transparent 0%,
+        transparent 38%,
+        rgba(200, 225, 255, 0.1) 47%,
+        rgba(255, 255, 255, 0.22) 49.5%,
+        rgba(140, 185, 255, 0.12) 51%,
+        transparent 58%,
+        transparent 100%
+      );
+      mix-blend-mode: overlay;
+      filter: blur(0.5px);
+      animation: pageBgSweep 14s ease-in-out infinite;
+    }
+
+    @keyframes pageBgBaseShift {
+      0% { filter: hue-rotate(0deg) saturate(1); }
+      100% { filter: hue-rotate(4deg) saturate(1.08); }
+    }
+
+    @keyframes pageBgGlowA {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      100% { transform: translate(-4%, 6%) scale(1.08); opacity: 0.65; }
+    }
+
+    @keyframes pageBgGlowB {
+      0% { transform: translate(0, 0) scale(1.02); opacity: 0.45; }
+      100% { transform: translate(5%, -4%) scale(1.12); opacity: 0.6; }
+    }
+
+    @keyframes pageBgFinsDrift {
+      from { background-position: 0 0; }
+      to { background-position: 26px 0; }
+    }
+
+    @keyframes pageBgSweep {
+      0%, 100% { transform: translateX(-18%) skewX(-6deg); opacity: 0.38; }
+      50% { transform: translateX(18%) skewX(-6deg); opacity: 0.88; }
+    }
+
+    @keyframes pageBgGlass1 {
+      0% { transform: rotate(-10deg) translate(0, 0); }
+      100% { transform: rotate(-9deg) translate(-2%, 3%); }
+    }
+
+    @keyframes pageBgGlass2 {
+      0% { transform: rotate(7deg) translate(0, 0); }
+      100% { transform: rotate(6deg) translate(2%, -2%); }
+    }
+
+    @keyframes pageBgGlass3 {
+      0% { transform: rotate(-4deg) scale(1); opacity: 0.52; }
+      100% { transform: rotate(-3deg) scale(1.02); opacity: 0.6; }
+    }
+
+    @keyframes pageBgSpecular {
+      0% {
+        opacity: 0.75;
+        transform: scale(1) translate(0, 0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.06) translate(2%, -1%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-bg__base,
+      .page-bg__glow--a,
+      .page-bg__glow--b,
+      .page-bg__fins,
+      .page-bg__glass--1,
+      .page-bg__glass--2,
+      .page-bg__glass--3,
+      .page-bg__specular,
+      .page-bg__sweep {
+        animation: none !important;
+      }
+    }
+
+    :where(a:not([class])) {
+      color: var(--yellow-bright);
+      text-underline-offset: 0.15em;
+    }
+
+    .page-bg__grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.03;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .page-bg__bloom {
+      position: fixed;
+      width: min(70vw, 36rem);
+      height: min(70vw, 36rem);
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .page-bg__bloom--tr {
+      top: -15%;
+      right: -10%;
+      background: radial-gradient(circle, rgba(14, 60, 255, 0.32) 0%, rgba(7, 42, 200, 0.12) 50%, transparent 72%);
+      animation: pageBgBloomPulse 20s ease-in-out infinite alternate;
+    }
+
+    .page-bg__bloom--bl {
+      bottom: -20%;
+      left: -15%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(5, 30, 144, 0.2) 45%, transparent 68%);
+      opacity: 0.38;
+      animation: pageBgBloomPulse 26s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes pageBgBloomPulse {
+      0% { transform: scale(1); opacity: 0.42; }
+      100% { transform: scale(1.06); opacity: 0.55; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-bg__bloom--tr,
+      .page-bg__bloom--bl {
+        animation: none !important;
+      }
+    }
+
+    .u-skip {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      z-index: 2000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      background: var(--yellow);
+      color: var(--on-accent);
+      font-weight: 700;
+      font-family: var(--font);
+    }
+
+    .u-skip:focus {
+      top: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    .glass {
+      background: var(--glass-surface);
+      backdrop-filter: var(--blur-frost);
+      -webkit-backdrop-filter: var(--blur-frost);
+      border: 1px solid var(--glass-stroke-soft);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: var(--blur-frost);
+      -webkit-backdrop-filter: var(--blur-frost);
+      border-bottom: 1px solid var(--glass-stroke-soft);
+      box-shadow: 0 8px 32px rgba(0, 20, 90, 0.2), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .site-header__inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand:hover { text-decoration: none; }
+
+    .brand__logo {
+      height: 2.5rem;
+      width: auto;
+      max-width: min(14rem, 42vw);
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+    }
+
+    .brand__mark {
+      display: none;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.65rem;
+      place-items: center;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 0.9rem;
+      background: linear-gradient(145deg, var(--yellow-bright), var(--yellow));
+      color: var(--on-accent);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .brand__mark.is-visible { display: grid; }
+
+    .brand__tag {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      line-height: 1.2;
+    }
+
+    .brand__tag strong {
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+
+    .brand__tag span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .brand__tag { display: none; }
+    }
+
+    .nav-main {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-main { display: none; }
+    }
+
+    .nav-main a {
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s;
+    }
+
+    .nav-main a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    .btn--solid {
+      color: var(--on-accent);
+      background: linear-gradient(180deg, var(--yellow-bright), var(--yellow));
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.45) inset,
+        0 10px 32px rgba(252, 243, 0, 0.25);
+    }
+
+    .btn--solid:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.5) inset,
+        0 14px 40px rgba(255, 236, 0, 0.35);
+      text-decoration: none;
+    }
+
+    .btn--outline {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-stroke-soft);
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+    }
+
+    .btn--outline:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--glass-stroke);
+      text-decoration: none;
+    }
+
+    .main {
+      position: relative;
+      z-index: 1;
+      padding-top: calc(var(--header-height) + 2.5rem);
+    }
+
+    .section {
+      padding-block: clamp(3rem, 8vw, 4.5rem);
+    }
+
+    .section__intro {
+      max-width: 40rem;
+      margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    .section__intro h2 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section__intro p {
+      margin: 0;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    #work .section__intro {
+      max-width: min(100%, 48rem);
+    }
+
+    .section__intro--gallery {
+      line-height: 1.7;
+    }
+
+    .hero {
+      padding-bottom: 1rem;
+    }
+
+    .hero__grid {
+      display: grid;
+      gap: clamp(2rem, 5vw, 3rem);
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .hero__label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--yellow-bright);
+    }
+
+    .hero__label::before {
+      content: "";
+      width: 1.75rem;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 .hl {
+      color: var(--yellow);
+      font-style: normal;
+    }
+
+    .hero__lead {
+      margin: 0 0 1.75rem;
+      max-width: 42ch;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .hero-panel {
+      padding: clamp(1.5rem, 4vw, 2rem);
+      border-radius: calc(var(--radius) + 4px);
+      border-color: var(--glass-stroke);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto auto;
+      width: 55%;
+      height: 55%;
+      background: radial-gradient(circle, rgba(252, 243, 0, 0.18) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-panel__top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-panel__top h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .hero-panel__logo {
+      height: 3rem;
+      width: auto;
+      max-width: 10rem;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-panel p {
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats__cell {
+      padding: 0.85rem 0.5rem;
+      text-align: center;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border: 1px solid var(--glass-stroke-soft);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .stats__cell strong {
+      display: block;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--yellow-bright);
+    }
+
+    .stats__cell span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 560px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card-service {
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .card-service:hover {
+      transform: translateY(-3px);
+      border-color: rgba(252, 243, 0, 0.45);
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-service__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 0.85rem;
+      border-radius: 0.65rem;
+      display: grid;
+      place-items: center;
+      color: var(--yellow);
+      background: rgba(252, 243, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .card-service__icon svg {
+      width: 1.35rem;
+      height: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .card-service h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+
+    .card-service p {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .gallery {
+      display: grid;
+      gap: 1.15rem;
+    }
+
+    @media (min-width: 620px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 960px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .gallery__item {
+      position: relative;
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--glass-stroke-soft);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 40px rgba(0, 25, 120, 0.28);
+      isolation: isolate;
+    }
+
+    .gallery__item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.45s var(--ease);
+    }
+
+    .gallery__item:hover img { transform: scale(1.05); }
+
+    .gallery__cap {
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 2;
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: linear-gradient(to top, rgba(5, 30, 144, 0.88), rgba(5, 30, 144, 0.35) 50%, transparent);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .gallery__cap span {
+      display: block;
+      margin-top: 0.15rem;
+      font-weight: 600;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .cta {
+      margin-top: clamp(2rem, 5vw, 3rem);
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(252, 243, 0, 0.32);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: var(--blur-frost);
+      -webkit-backdrop-filter: var(--blur-frost);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 720px) {
+      .cta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .cta h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .cta p {
+      margin: 0.35rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .code-inline {
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 0.8em;
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.45rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--glass-stroke-soft);
+    }
+
+    .site-footer {
+      margin-top: 2rem;
+      padding-block: 2.25rem;
+      border-top: 1px solid var(--glass-stroke-soft);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: var(--blur-frost);
+      -webkit-backdrop-filter: var(--blur-frost);
+      box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.06) inset;
+    }
+
+    .site-footer__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 720px) {
+      .site-footer__inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: start;
+      }
+    }
+
+    .site-footer__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .site-footer__brand img {
+      height: 2.35rem;
+      width: auto;
+    }
+
+    .site-footer__meta {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .about-block {
+      padding: clamp(1.75rem, 4vw, 2.75rem);
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--glass-stroke-soft);
+      max-width: min(100%, var(--max));
+      margin-inline: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    #about .section__intro {
+      max-width: min(100%, var(--max));
+    }
+
+    .about-block__text {
+      color: var(--text-muted);
+      font-size: clamp(0.96rem, 1.5vw, 1.02rem);
+      line-height: 1.78;
+      font-weight: 500;
+    }
+
+    @media (min-width: 880px) {
+      .about-block__text {
+        column-count: 2;
+        column-gap: clamp(2rem, 5vw, 3.25rem);
+        column-rule: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .about-block__text p {
+        break-inside: avoid;
+      }
+    }
+
+    .about-block__text p {
+      margin: 0 0 1.15rem;
+    }
+
+    .about-block__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-block__text strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .quick-dock {
+      position: fixed;
+      right: max(0.65rem, env(safe-area-inset-right));
+      bottom: max(0.65rem, env(safe-area-inset-bottom));
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .quick-dock__btn {
+      display: grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--glass-stroke-soft);
+      box-shadow: 0 4px 20px rgba(0, 25, 100, 0.35), 0 1px 0 rgba(255, 255, 255, 0.12) inset;
+      text-decoration: none;
+      transition: transform 0.2s var(--ease), background 0.2s, border-color 0.2s;
+    }
+
+    .quick-dock__btn:hover {
+      transform: scale(1.08);
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(252, 243, 0, 0.45);
+      text-decoration: none;
+    }
+
+    .quick-dock__btn:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 2px;
+    }
+
+    .quick-dock__btn svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <a class="u-skip" href="#content">Skip to content</a>
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-bg__base"></div>
+    <div class="page-bg__glow page-bg__glow--a"></div>
+    <div class="page-bg__glow page-bg__glow--b"></div>
+    <div class="page-bg__fins"></div>
+    <div class="page-bg__frost"></div>
+    <div class="page-bg__glass page-bg__glass--1"></div>
+    <div class="page-bg__glass page-bg__glass--2"></div>
+    <div class="page-bg__glass page-bg__glass--3"></div>
+    <div class="page-bg__specular"></div>
+    <div class="page-bg__sweep"></div>
+  </div>
+  <div class="page-bg__grain" aria-hidden="true"></div>
+  <div class="page-bg__bloom page-bg__bloom--tr" aria-hidden="true"></div>
+  <div class="page-bg__bloom page-bg__bloom--bl" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#top">
+        <img
+          class="brand__logo"
+          src="https://raw.githubusercontent.com/mohsenabass70-cmyk/mohsenstudio/32a0db251b3750553e9a39065b116fb71739333a/logos-01.svg"
+          width="220"
+          height="48"
+          decoding="async"
+          data-logo
+        />
+        <span class="brand__mark" id="logo-fallback">M</span>
+        <div class="brand__tag">
+        </div>
+      </a>
+      <nav class="nav-main" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--solid" href="#contact">Start a project</a>
+    </div>
+  </header>
+
+  <main class="main" id="content">
+    <section class="hero container" id="top" aria-labelledby="hero-title">
+      <div class="hero__grid">
+        <div>
+          <p class="hero__label">Design that clarifies the message</p>
+          <h1 id="hero-title">
+            Visual identities that <span class="hl">feel clear</span>, and logos that <span class="hl">stay remembered</span>
+          </h1>
+          <p class="hero__lead">
+            <strong>MOHSEN STUDIO</strong> delivers visual identity, logo systems, responsive websites, and social-ready artwork—color, type, vectors, and layouts built for print, screens, and feeds, with a modern look that scales with your brand.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#work">View work</a>
+            <a class="btn btn--outline" href="#about">About us</a>
+            <a class="btn btn--outline" href="#contact">Discuss your brief</a>
+          </div>
+        </div>
+
+        <div class="hero-panel glass">
+          <div class="hero-panel__top">
+            <h2>Brand assets that match your craft</h2>
+            <img
+              class="hero-panel__logo"
+              src="https://raw.githubusercontent.com/mohsenabass70-cmyk/mohsenstudio/2b024f871ea8674a4d58bd58e67cc3237c108441/.github/workflows/m.logo.svg"
+              alt=""
+              width="160"
+              height="48"
+              decoding="async"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <p>
+            From exploration to export-ready files—identity, web layouts, and social templates that stay consistent across every touchpoint.
+          </p>
+          <div class="stats" aria-label="Studio snapshot">
+            <div class="stats__cell">
+              <strong>50+</strong>
+              <span>identity projects</span>
+            </div>
+            <div class="stats__cell">
+              <strong>100%</strong>
+              <span>print-ready vectors</span>
+            </div>
+            <div class="stats__cell">
+              <strong>24–72h</strong>
+              <span>first response</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="about" aria-labelledby="about-title">
+      <div class="section__intro">
+        <h2 id="about-title">About us</h2>
+        <p>Graphic design and visual identity from Hamilton, ON — clear systems, memorable marks, and assets you can ship everywhere.</p>
+      </div>
+      <div class="about-block glass">
+        <div class="about-block__text">
+          <p>
+            <strong>Mohsen Studio</strong> is a graphic design practice based in <strong>Hamilton, Ontario, Canada</strong>. We turn ideas into inspiring, production-ready design: visual identities, logos, responsive website layouts, social content, print, and packaging. Every piece is built to clarify your message and stay consistent across screens, feeds, and print.
+          </p>
+          <p>
+            We believe design is both expression and engineering—beautiful surfaces backed by structure. That means thoughtful typography and color, vector precision, and simple rules your team can follow so the brand looks intentional everywhere it appears.
+          </p>
+          <p>
+            From first sketches to export-ready files, we cover the full identity arc: strategy-aligned concepts, refined marks, palettes, type systems, mockups, and guidelines. Websites are structured for clarity and speed; social templates are sized for real platforms; print and packaging are prepared with correct bleed, trim, and vendor-ready PDFs when needed.
+          </p>
+          <p>
+            Collaboration matters: we listen to your goals, timeline, and audience, then iterate with purpose. Whether you are launching a new name or refreshing an existing look, we aim for work that feels current—not trendy for its own sake—and holds up as your business grows.
+          </p>
+          <p>
+            Passionate about creativity and open to new projects. Reach out by phone, WhatsApp, email, or the social links here—we typically reply within a few days with next steps and a clear scope.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="services" aria-labelledby="services-title">
+      <div class="section__intro">
+        <h2 id="services-title">Services</h2>
+        <p>End-to-end brand support: identity, marks, digital presence, print &amp; packaging, and content your audience sees every day.</p>
+      </div>
+      <div class="services-grid">
+        <article class="card-service glass">
+          <div class="card-service__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>Visual identity</h3>
+          <p>Logo, palette, typography, imagery style, and applications for cards, decks, and presentation templates.</p>
+        </article>
+        <article class="card-service glass">
+          <div class="card-service__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14L13 18l5-5z"/><path d="M2 2l7.59 7.59"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3>Logo design</h3>
+          <p>Precise vectors, full-color and single-color lockups, sized for screen and production-ready print.</p>
+        </article>
+        <article class="card-service glass">
+          <div class="card-service__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Usage guidance</h3>
+          <p>Spacing, minimum sizes, backgrounds, and simple rules so your team keeps the mark consistent.</p>
+        </article>
+        <article class="card-service glass">
+          <div class="card-service__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M6 8h4M6 12h8"/></svg>
+          </div>
+          <h3>Website design</h3>
+          <p>Modern, responsive one-page or multi-section sites aligned with your identity—clear structure, fast loading, and mobile-friendly layouts.</p>
+        </article>
+        <article class="card-service glass">
+          <div class="card-service__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <h3>Social media posts</h3>
+          <p>Feed-ready graphics and story frames for Instagram, X, LinkedIn, and more—on-brand templates you can reuse for campaigns and announcements.</p>
+        </article>
+        <article class="card-service glass">
+          <div class="card-service__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Print &amp; packaging</h3>
+          <p>Brochures, flyers, catalogs, posters, labels, boxes, and product sleeves—layouts tied to your identity, with print-ready PDFs, bleed, trim, and packaging dielines when required.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="work" aria-labelledby="gallery-title">
+      <div class="section__intro">
+        <h2 id="gallery-title">Selected work</h2>
+        <p class="section__intro--gallery">
+          Selected identity and campaign shots from the studio. More on
+          <a href="https://www.facebook.com/share/1DNg2kr9nE/" target="_blank" rel="noopener noreferrer">Facebook</a>.
+        </p>
+      </div>
+      <div class="gallery" aria-label="Portfolio gallery">
+        <figure class="gallery__item">
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/475039178_122121420230607398_3592026277455532107_n.jpg?_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=13d280&amp;_nc_ohc=Bof2mxDBHqIQ7kNvwH4atht&amp;_nc_oc=AdqnBgfT-MIHbgYmgQAYxLQgEEYKMFs82-gWomnfo4sJaN2IG8Zy5wjf_DsR_sbh_Vc&amp;_nc_zt=23&amp;_nc_ht=scontent-yyz1-1.xx&amp;_nc_gid=NoSznwqkhSgtnIlR04PKow&amp;_nc_ss=7a3a8&amp;oh=00_Af03-kEjeQGgCL5Q6HWE5vmUOfiKMlkSaosv5nTNc1StoQ&amp;oe=69DFB4C9"
+            alt="Tira baby — script logo with soft pink hearts and baby subtext"
+            width="960"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="gallery__cap">
+            Tira baby
+            <span>Brand · baby care</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/627380555_122167766324607398_4995807125414206560_n.jpg?_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=13d280&amp;_nc_ohc=3NSqbyXB2l4Q7kNvwGlYG_v&amp;_nc_oc=Adq7qKigOMC6gNedqnlUX5qqAGgHORzuIYErezF_DNp-r4TZJiHvyP-ptdrZYb12HYQ&amp;_nc_zt=23&amp;_nc_ht=scontent-yyz1-1.xx&amp;_nc_gid=J1tiC_t_RNcMD90snmncMg&amp;_nc_ss=7a3a8&amp;oh=00_Af0SO83ELIFcYeTPlWISlKa8_gYtxG8TNxDDsGPb-3L7sA&amp;oe=69DFBF57"
+            alt="Maryana Beauty — gold foil logo on dark leather texture"
+            width="960"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="gallery__cap">
+            Maryana Beauty
+            <span>Luxury identity · gold foil</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/615736918_122165822606607398_6526988436385756727_n.jpg?_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=13d280&amp;_nc_ohc=yFKYE49utBQQ7kNvwG3c2mB&amp;_nc_oc=Adpx6tliQZk7-YZnbjB4nB-A2kQJ9u05l8yqLiun6zamRl8y8VULuVq8d_7YXYVX0uQ&amp;_nc_zt=23&amp;_nc_ht=scontent-yyz1-1.xx&amp;_nc_gid=FsEHkOCglhTH6eVOAJ6hFw&amp;_nc_ss=7a3a8&amp;oh=00_Af0tHC6cjOPKeOeos9oalLZFJIG3GVIHPhW_t91actOZSQ&amp;oe=69DF9CBA"
+            alt="Nourseen — colorful mark with Arabic and English wordmark"
+            width="960"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="gallery__cap">
+            Nourseen
+            <span>Bilingual logo · color system</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/474929098_122120855744607398_8533866235091546774_n.jpg?_nc_cat=109&amp;ccb=1-7&amp;_nc_sid=13d280&amp;_nc_ohc=JBvFSwwy8DcQ7kNvwErHzTn&amp;_nc_oc=AdqgV5HR8PcRIAyQAax7-DlLN8aJLEWu2xerkf1oGRwe6SqTn90V2PjKUOLQ-lqOfuU&amp;_nc_zt=23&amp;_nc_ht=scontent-yyz1-1.xx&amp;_nc_gid=y7wtI1jQHNSMtwgWXMCXuw&amp;_nc_ss=7a3a8&amp;oh=00_Af3g0umqfLz1Egaw4zPNNVRhhsf0Of1UZZBNfid59VTztA&amp;oe=69DFB4DA"
+            alt="Namar — real estate development branding with Arabic and English"
+            width="960"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="gallery__cap">
+            Namar
+            <span>Real estate · Arabic &amp; English</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/470459026_122114976266607398_8590694321488094528_n.jpg?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=13d280&amp;_nc_ohc=s033iYHGd-AQ7kNvwGxjH0x&amp;_nc_oc=AdrP6SnOhxg0CnxUWatp8Ew8-MQ1WzfyoT6FaB9A3KtZxXdUY_BXtFWuVCaItCJsamw&amp;_nc_zt=23&amp;_nc_ht=scontent-yyz1-1.xx&amp;_nc_gid=8nYvVh5NAVD6DfKJJNUbpQ&amp;_nc_ss=7a3a8&amp;oh=00_Af3GkQ75_eUNbUlmvNzO5FDSmwbT_83i1yOO_Xk5aq_y8A&amp;oe=69DFA029"
+            alt="Enven — full visual identity and applications"
+            width="960"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="gallery__cap">
+            Enven
+            <span>Full visual identity</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img
+            src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/497455921_122139135686607398_3000884463488778150_n.jpg?_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=1d70fc&amp;_nc_ohc=riEQYUAwrk8Q7kNvwEv460d&amp;_nc_oc=AdpFOTlyeY8IzXIkfbwQjUykUWY1plGMakXdtrGG7V7lypF4RBjmFARVxjtua3unTDg&amp;_nc_zt=23&amp;_nc_ht=scontent-yyz1-1.xx&amp;_nc_gid=RolsvQ1TBMdnzM3ODBqRiw&amp;_nc_ss=7a3a8&amp;oh=00_Af3Ck7Fa4OP3yYS1bgUYWbN4BR2tlswVyATaPzSGnFbm-A&amp;oe=69DFC34F"
+            alt="Mohsen Studio — yellow geometric mark on blue"
+            width="960"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="gallery__cap">
+            Mohsen Studio
+            <span>Wordmark · brand mark</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="cta" id="contact">
+        <div>
+          <h2>Identity, website, or social pack?</h2>
+          <p>Share your brand name, goals, and timeline—I'll reply with a clear scope and next steps.</p>
+        </div>
+        <a class="btn btn--solid" href="mailto:mohsenabass70@gmail.com">Email the studio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <img
+          src="mohsen.svg"
+          alt=""
+          width="140"
+          height="40"
+          decoding="async"
+          data-logo
+        />
+        <span class="brand__mark" id="footer-logo-fallback">M</span>
+        <div>
+          <strong style="font-family:var(--font);letter-spacing:0.06em;font-weight:800"></strong>
+          <p class="site-footer__meta" style="margin:0.2rem 0 0">© <span data-year></span> — All rights reserved</p>
+        </div>
+      </div>
+      </p>
+    </div>
+  </footer>
+
+  <aside class="quick-dock" aria-label="Social and contact shortcuts">
+    <a class="quick-dock__btn" href="https://www.facebook.com/share/1DNg2kr9nE/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a class="quick-dock__btn" href="tel:+18793821882" aria-label="Phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+    </a>
+    <a class="quick-dock__btn" href="https://wa.me/18793821882" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a class="quick-dock__btn" href="mailto:mohsenabass70@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+    </a>
+    <a class="quick-dock__btn" href="https://www.instagram.com/mohsen_design70?igsh=enJ2cjY3cWdkcTcy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a class="quick-dock__btn" href="https://www.google.com/maps/search/?api=1&amp;query=Hamilton%2C%20ON%2C%20Canada" target="_blank" rel="noopener noreferrer" aria-label="Location — Hamilton, ON, Canada">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </a>
+  </aside>
+
+  <script>
+    (function () {
+      var y = document.querySelector("[data-year]");
+      if (y) y.textContent = new Date().getFullYear();
+
+      function bindLogoFallback(img, fallback) {
+        if (!img || !fallback) return;
+        img.addEventListener("error", function () {
+          img.style.display = "none";
+          fallback.classList.add("is-visible");
+        });
+      }
+
+      bindLogoFallback(document.querySelector(".brand__logo"), document.getElementById("logo-fallback"));
+      bindLogoFallback(
+        document.querySelector(".site-footer__brand img[data-logo]"),
+        document.getElementById("footer-logo-fallback")
+      );
+    })();
+  </script>
+</body>
+</html>
